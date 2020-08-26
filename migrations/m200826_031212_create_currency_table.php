@@ -1,5 +1,6 @@
 <?php
 
+use app\models\Currency;
 use yii\db\Migration;
 
 /**
@@ -12,12 +13,12 @@ class m200826_031212_create_currency_table extends Migration
      */
     public function safeUp()
     {
-        $this->createTable('currency', [
+        $this->createTable(Currency::tableName(), [
             'id' => $this->primaryKey(),
             'code' => $this->char(3)->notNull()->unique(),
             'name' => $this->string(),
             'rate' => $this->float(),
-            'insert_dt' => $this->dateTime(),
+            'insert_dt' => $this->dateTime()->defaultExpression('NOW()'),
         ]);
     }
 
@@ -26,6 +27,6 @@ class m200826_031212_create_currency_table extends Migration
      */
     public function safeDown()
     {
-        $this->dropTable('currency');
+        $this->dropTable(Currency::tableName());
     }
 }
