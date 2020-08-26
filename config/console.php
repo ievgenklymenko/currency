@@ -25,7 +25,9 @@ $config = [
                 ],
             ],
         ],
-        'db' => $db,
+        'db' => [
+            'dsn' => "{$_ENV['DB_CONNECTION']}:host={$_ENV['DB_CONSOLE_HOST']};dbname={$_ENV['DB_DATABASE']}",
+        ] + $db,
     ],
     'params' => $params,
     /*
