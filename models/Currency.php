@@ -12,7 +12,7 @@ class Currency extends ActiveRecord
         $insertRows = CurrencyDataGateway::get();
 
         $db = \ii::$app->db;
-        Y
+        Yaa
         /** @var TYPE_NAME $insertRows */
         $db->createCommand(
             $sql = $db->queryBuilder->batchInsert(static::tableName(), ['code', 'name', 'rate'], $insertRows);
