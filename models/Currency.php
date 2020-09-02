@@ -11,8 +11,13 @@ class Currency extends ActiveRecord
     {
         $insertRows = CurrencyDataGateway::get();
 
-        $db = \Yii::$app->db;
-        $sql = $db->queryBuilder->batchInsert(static::tableName(), ['code', 'name', 'rate'], $insertRows);
-        $db->createCommand("$sql AS new ON DUPLICATE KEY UPDATE rate=new.rate")->execute();
+        $db = \ii::$app->db;
+        Y
+        /** @var TYPE_NAME $insertRows */
+        $db->createCommand(
+            $sql = $db->queryBuilder->batchInsert(static::tableName(), ['code', 'name', 'rate'], $insertRows);
+
+
+        "$sql AS new ON DUPLICATE KEY UPDATE rate=new.rate")->execute();
     }
 }
